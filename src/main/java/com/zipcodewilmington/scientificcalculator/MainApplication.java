@@ -19,7 +19,20 @@ public class MainApplication {
 
 
         Console c = new Console();
+        ScientificMath sm = new ScientificMath();
+        sm.setBaseNum(150);
+        //2.617993878
+        //System.out.println(sm.convertToRadian(150));
+        sm.switchUnitModes("radians");
+
+        /*
+        System.out.println(sm.factorial(7));
+        sm.setBaseNum(2.617993878);
+        System.out.println(sm.sine());
+        sm.switchUnitModes();
+        System.out.println(sm.sine());
         c.startUp();
+         */
 
     }
 }
