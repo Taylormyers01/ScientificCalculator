@@ -30,10 +30,14 @@ public class Console {
         boolean exit = false;
         while (exit != true) {
 
-            System.out.println("Would you like to use Basic Math or Scientific Math? \n" +
-                               "Input B for Basic Math\n" +
-                                "Input S for Scientific Math\n" +
-                                "Input E to Exit the calculator");
+            System.out.println( " __________________________________ \n" +
+                                "|                                  |\n" +
+                                "| Would you like to use Basic Math?|\n" +
+                                "| Or Scientific Math?              |\n" +
+                                "| Input B for Basic Math           |\n" +
+                                "| Input S for Scientific Math      |\n" +
+                                "| Input E to Exit the calculator   |\n" +
+                                "| _________________________________|\n");
             Scanner input = new Scanner(System.in);
             Character choice = input.next().charAt(0);
             choice = choice.toUpperCase(choice);
@@ -74,18 +78,21 @@ public class Console {
         boolean exit = false;
         while (exit != true) {
 
-            System.out.println( "Input an operation:    \n"+
-                                " + Addition            \n"+
-                                " - Subtraction         \n"+
-                                " * Multiplication      \n"+
-                                " / Division            \n"+
-                                " ^ Square a number     \n"+
-                                " v Square Root a number\n"+
-                                " ~ Variable Exponent   \n"+
-                                " _ Inverse a number    \n"+
-                                " |   Invert a number   \n"+
-
-                                "Or input e to exit");
+            System.out.println( " ________________________\n"+
+                                "|  [Input an operation]  |\n"+
+                                "|                        |\n"+
+                                "| + Addition             |\n"+
+                                "| - Subtraction          |\n"+
+                                "| * Multiplication       |\n"+
+                                "| / Division             |\n"+
+                                "| ^ Square a number      |\n"+
+                                "| v Square Root a number |\n"+
+                                "| ~ Variable Exponent    |\n"+
+                                "| _ Inverse a number     |\n"+
+                                "| |   Invert a number    |\n"+
+                                "|                        |\n"+
+                                "|   [Or input e to exi]  |\n"+
+                                "|------------------------|");
 
             Scanner input = new Scanner(System.in);
             Character choice = input.next().charAt(0);
@@ -142,20 +149,40 @@ public class Console {
                     } */
                     setAnswer((int) BasicMath.divNum(baseNum, operatorNum));
 
-                } else if (choice == '-') {
+                } else if (choice == '^') {
+                    System.out.println("Input your number");
+                    setBaseNum(input.nextInt());
+
+                    setAnswer(BasicMath.sqrNum(baseNum));
+
+                } else if (choice == 'v') {
+                    System.out.println("Input your number");
+                    setBaseNum(input.nextInt());
+
+                    setAnswer((int) BasicMath.sqrRootNum(baseNum));
+
+                } else if (choice == '~') {
                     System.out.println("Input your first number");
                     setBaseNum(input.nextInt());
 
                     System.out.println("Input your second number");
                     setOperatorNum(input.nextInt());
 
-                    setAnswer(BasicMath.subNum(baseNum, operatorNum));
+                    setAnswer((int) BasicMath.expNum(baseNum, operatorNum));
+
+                } else if (choice == '_') {
+                    System.out.println("Input your number");
+                    setBaseNum(input.nextInt());
+
+                    setAnswer((int) BasicMath.inverseNum(baseNum));
+
+                } else if (choice == '|') {
+                    System.out.println("Input your number");
+                    setBaseNum(input.nextInt());
+
+                    setAnswer(BasicMath.invertNum(baseNum));
 
                 }
-
-
-
-
                     else if (choice == 'e') {
                     exit = true;
 
