@@ -74,11 +74,23 @@ public class Console {
         boolean exit = false;
         while (exit != true) {
 
-            System.out.println("Input + to add two numbers\n"+
+            System.out.println( "Input an operation:    \n"+
+                                " + Addition            \n"+
+                                " - Subtraction         \n"+
+                                " * Multiplication      \n"+
+                                " / Division            \n"+
+                                " ^ Square a number     \n"+
+                                " v Square Root a number\n"+
+                                " ~ Variable Exponent   \n"+
+                                " _ Inverse a number    \n"+
+                                " |   Invert a number   \n"+
+
                                 "Or input e to exit");
 
             Scanner input = new Scanner(System.in);
             Character choice = input.next().charAt(0);
+
+
                 if (choice == '+') {
                     System.out.println("Input your first number");
                     setBaseNum(input.nextInt());
@@ -90,7 +102,61 @@ public class Console {
 
                    // System.out.println(BasicMath.addNum(baseNum, operatorNum));
 
-                } else if (choice == 'e') {
+                } else if (choice == '-') {
+                    System.out.println("Input your first number");
+                    setBaseNum(input.nextInt());
+
+                    System.out.println("Input your second number");
+                    setOperatorNum(input.nextInt());
+
+                    setAnswer(BasicMath.subNum(baseNum, operatorNum));
+
+                } else if (choice == '*') {
+                    System.out.println("Input your first number");
+                    setBaseNum(input.nextInt());
+
+                    System.out.println("Input your second number");
+                    setOperatorNum(input.nextInt());
+
+                    setAnswer(BasicMath.multNum(baseNum, operatorNum));
+
+                } else if (choice == '/') {
+                    System.out.println("Input your first number");
+                    setBaseNum(input.nextInt());
+
+                    System.out.println("Input your second number");
+                    setOperatorNum(input.nextInt());
+
+                  /*  if (operatorNum == 0) {
+
+                        boolean ePressed = false;
+                        while (ePressed = true) {
+                            System.out.println("ERROR");
+                            System.out.println("PRESS E TO EXIT");
+
+                            char reset = input.nextLine().charAt(0);
+                            if (reset == 'e' || reset == 'E') {
+                                ePressed = true;
+                            } else ePressed = false;
+                        }
+                    } */
+                    setAnswer((int) BasicMath.divNum(baseNum, operatorNum));
+
+                } else if (choice == '-') {
+                    System.out.println("Input your first number");
+                    setBaseNum(input.nextInt());
+
+                    System.out.println("Input your second number");
+                    setOperatorNum(input.nextInt());
+
+                    setAnswer(BasicMath.subNum(baseNum, operatorNum));
+
+                }
+
+
+
+
+                    else if (choice == 'e') {
                     exit = true;
 
                 }
