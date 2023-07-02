@@ -6,102 +6,89 @@ public class ScientificMath {
 
     static double  baseNum;
     static String mode;
+    static double savedAnswer;
 
     public ScientificMath(){
         baseNum = 0.00;
         mode = "degrees";
+        savedAnswer = 0.00;
     }
-    public double sine(){
-        double output;
+    public void sine(){
         if(mode.equals("degrees")){
-            output = Math.sin(convertToRadian(baseNum));
+            baseNum = Math.sin(convertToRadian(baseNum));
         }
         else{
-            output = Math.sin(baseNum);
+            baseNum = Math.sin(baseNum);
         }
-        return output;
     }
 
-    public static double cosine(){
-        double output;
+    public static void cosine(){
         if(mode.equals("degrees")){
-            output = Math.cos(convertToRadian(baseNum));
+            baseNum = Math.cos(convertToRadian(baseNum));
         }
         else {
-            output = Math.cos(baseNum);
+            baseNum = Math.cos(baseNum);
         }
-        return output;
     }
 
-    public static double tan(){
-        double output;
+    public static void tan(){
         if(mode.equals("degrees")){
-            output = Math.tan(convertToRadian(baseNum));
+            baseNum = Math.tan(convertToRadian(baseNum));
         }
         else{
-            output = Math.tan(baseNum);
+            baseNum = Math.tan(baseNum);
         }
-        return output;
     }
-    public static double inverseSine(){
-        double output;
+    public static void inverseSine(){
         if(mode.equals("degrees")){
-            output = Math.asin(convertToRadian(baseNum));
+            baseNum = Math.asin(convertToRadian(baseNum));
         }
         else{
-            output = Math.asin(baseNum);
+            baseNum = Math.asin(baseNum);
         }
-        return output;
     }
 
-    public static double inverseCosine(){
-        double output;
+    public static void inverseCosine(){
         if(mode.equals("degrees")){
-            output = Math.acos(convertToRadian(baseNum));
+            baseNum = Math.acos(convertToRadian(baseNum));
         }
         else{
-            output = Math.acos(baseNum);
+            baseNum = Math.acos(baseNum);
         }
-        return output;
     }
 
-    public static double inverseTan(){
-        double output;
+    public static void inverseTan(){
         if(mode.equals("degrees")){
-            output = Math.atan(convertToRadian(baseNum));
+            baseNum = Math.atan(convertToRadian(baseNum));
         }
         else{
-            output = Math.atan(baseNum);
+            baseNum = Math.atan(baseNum);
         }
-        return output;
     }
 
-    public static double log(double x){
-        double output = Math.log(x);
-        return output;
+    public static void log(){
+         baseNum = Math.log(baseNum);
     }
 
-    public static double inverseLog(double x){
-        double output = Math.log10(x);
-        return output;
+    public static void inverseLog(){
+         baseNum = Math.log10(baseNum);
     }
 
-    public static double naturalLog(double x){
-        double output = Math.log1p(x);
-        return output;
+    public static void naturalLog(){
+        baseNum = Math.log1p(baseNum);
     }
 
-    public static double inverseNaturalLog(double x){
-        return x;
+    public static void inverseNaturalLog(){
+        //inverse natural log is just the input number right?
     }
 
-    public static double factorial(double x){
+    public static void factorial(){
         double output = 1;
-        while(x > 0){
-            output = output * x;
-            x--;
+        while(baseNum > 0){
+            output = output * baseNum;
+            baseNum--;
         }
-        return output;
+        baseNum = output;
     }
 
     public static void switchUnitModes(){
@@ -139,6 +126,18 @@ public class ScientificMath {
     public static double convertToRadian(double x){
         double output =x * (Math.PI / 180);
         return output;
+    }
+
+    public static void printAnswer(){
+        System.out.printf("Your answer is %.2f.", baseNum);
+
+    }
+
+    public static void setSavedAnswer(){
+        savedAnswer = baseNum;
+    }
+    public static void clearSavedAnswer(){
+        savedAnswer = 0;
     }
 
 }

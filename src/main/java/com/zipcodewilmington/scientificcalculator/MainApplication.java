@@ -4,7 +4,7 @@ package com.zipcodewilmington.scientificcalculator;
  * Created by leon on 2/9/18.
  */
 public class MainApplication {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
 
         /*
@@ -19,11 +19,28 @@ public class MainApplication {
 
 
         Console c = new Console();
-        ScientificMath sm = new ScientificMath();
-        sm.setBaseNum(150);
+        for (int i = 0; i < 100; i++){
+            for(int j = 0; j < 3; j++){
+                System.out.println("(•_•)\t (•_•)\n" +
+                                   "<) )╯\t \\( (> \n" +
+                                   " / \\\t  / \\");
+                Thread.sleep(300);
+                System.out.println(("(•_•)\t (•_•)\n" +
+                                    "\\( (>\t <) )╯\n" +
+                                    " / \\\t  / \\"));
+                Thread.sleep(300);
+            }
+        }
+
+
+
+
+        //ScientificMath sm = new ScientificMath();
+        //sm.setBaseNum(150);
         //2.617993878
         //System.out.println(sm.convertToRadian(150));
-        sm.switchUnitModes("radians");
+        //sm.sine();
+        //sm.printAnswer();
 
         /*
         System.out.println(sm.factorial(7));
