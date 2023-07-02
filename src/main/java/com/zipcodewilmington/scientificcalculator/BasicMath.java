@@ -49,7 +49,7 @@ public class BasicMath {
         return ans;
     }
 
-    public static double inverseNum(int x) {
+    public static double inverseNum(double x) {
 
         double ans = (1 / x);
         return ans;
