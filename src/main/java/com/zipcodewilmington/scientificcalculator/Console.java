@@ -1,5 +1,7 @@
 package com.zipcodewilmington.scientificcalculator;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.sql.SQLOutput;
 import java.util.Scanner;
 
@@ -25,7 +27,7 @@ public class Console {
     }
 
 
-    public static void startUp() {
+    public static void startUp() throws InterruptedException {
 
         boolean exit = false;
         while (exit != true) {
@@ -49,6 +51,9 @@ public class Console {
 
             } else if (choice == 'S') {
                 System.out.println("You have chosen Scientific Math");
+
+                runScientificMath();
+
             } else if (choice == 'E') {
                 System.out.println("Thank you for using our Calculator");
                 exit = true;
@@ -68,10 +73,12 @@ public class Console {
     }
 
     public static void setAnswer(int x) {
+
         answer = x;
+
         System.out.println( "_________________\n"+
-                            "                 \n"+
-                            "Your answer is: " + answer);
+                            "                 \n");
+        System.out.printf(  "Your answer is: %d ", answer);
         System.out.println( "                 \n"+
                             "_________________");
 
@@ -86,8 +93,7 @@ public class Console {
 
 
 
-
-    public static void runBasicMath() {
+    public static void runBasicMath() throws InterruptedException {
 
         boolean exit = false;
         while (exit != true) {
@@ -148,22 +154,25 @@ public class Console {
                     setBaseNum(input.nextInt());
 
                     System.out.println("Input your second number");
-                    setOperatorNum(input.nextInt());
+                    int temp = input.nextInt();
 
-                  /*  if (operatorNum == 0) {
+                    if (temp == 0) {
 
                         boolean ePressed = false;
-                        while (ePressed = true) {
+
                             System.out.println("ERROR");
                             System.out.println("PRESS E TO EXIT");
 
-                            char reset = input.nextLine().charAt(0);
-                            if (reset == 'e' || reset == 'E') {
-                                ePressed = true;
-                            } else ePressed = false;
-                        }
-                    } */
-                    setAnswer((int) BasicMath.divNum(baseNum, operatorNum));
+                            String reset = input.nextLine();
+                            while (!reset.equalsIgnoreCase("e") ) {
+                                reset = input.nextLine();
+                            }
+
+                    } else if (temp != 0) {
+                        setOperatorNum(temp);
+                        setAnswer((int) BasicMath.divNum(baseNum, operatorNum));
+                    }
+
 
                 } else if (choice == '^') {
                     System.out.println("Input your number");
@@ -206,7 +215,42 @@ public class Console {
             }
         }
 
+    public static void runScientificMath() {
 
+        ScientificMath sm = new ScientificMath();
+
+        boolean exit = false;
+        while (exit != true) {
+
+            System.out.println(" ________________________ \n" +
+                                "|  [Input an operation]  |\n" +
+                                "|                        |\n" +
+                                "|   sin                  |\n" +
+                                "|   cos                  |\n" +
+                                "|   tan                  |\n" +
+                                "|   asin                 |\n" +
+                                "|   acos                 |\n" +
+                                "|   atan                 |\n" +
+                                "|   log                  |\n" +
+                                "|   ilog                 |\n" +
+                                "|   nlog                 |\n" +
+                                "|   inlog                |\n" +
+                                "|   !                    |\n" +
+                                "|   switch unit          |\n" +
+                                "|   switch display       |\n" +
+                                "|                        |\n" +
+                                "|                        |\n" +
+                                "|  [Or input e to exit]  |\n" +
+                                " ------------------------");
+
+            Scanner input = new Scanner(System.in);
+            String choice = input.next();
+            if (choice.equalsIgnoreCase("e")) {
+                exit = true;
+            }
+        }
+
+    }
 
 
 
