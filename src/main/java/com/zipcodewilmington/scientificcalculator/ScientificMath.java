@@ -1,5 +1,7 @@
 package com.zipcodewilmington.scientificcalculator;
 
+import java.util.Arrays;
+
 public class ScientificMath {
 
 
@@ -7,11 +9,13 @@ public class ScientificMath {
     static double  baseNum;
     static String mode;
     static double savedAnswer;
+    static String displayMode;
 
     public ScientificMath(){
         baseNum = 0.00;
         mode = "degrees";
         savedAnswer = 0.00;
+        displayMode = "decimal";
     }
     public void sine(){
         if(mode.equals("degrees")){
@@ -129,8 +133,23 @@ public class ScientificMath {
     }
 
     public static void printAnswer(){
-        System.out.printf("Your answer is %.2f.", baseNum);
+        String conversion = "";
 
+        if (displayMode.equalsIgnoreCase("decimal")){
+            System.out.printf("Your answer is %.2f.", baseNum);
+        }
+        else if(displayMode.equalsIgnoreCase("binary")){
+            conversion = Integer.toBinaryString((int)baseNum);
+            System.out.printf("Your number in decimal is: %.2f and %s in binary\n", baseNum, conversion);
+        }
+        else if(displayMode.equalsIgnoreCase("octal")){
+            conversion = Integer.toOctalString((int)baseNum);
+            System.out.printf("Your number in decimal is: %.2f and %s in octal\n", baseNum, conversion);
+        }
+        else{
+            conversion = Integer.toHexString((int)baseNum);
+            System.out.printf("Your number in decimal is: %.2f and %s in hexadecimal\n", baseNum, conversion);
+        }
     }
 
     public static void setSavedAnswer(){
@@ -140,4 +159,33 @@ public class ScientificMath {
         savedAnswer = 0;
     }
 
+    public static void switchDisplayMode(){
+        if(displayMode.equalsIgnoreCase("binary")){
+            displayMode = "octal";
+            System.out.printf("Your answers will now display in %s \n", displayMode);
+        }
+        else if(displayMode.equalsIgnoreCase("octal")){
+            displayMode = "decimal";
+            System.out.printf("Your answers will now display in %s \n", displayMode);
+        }
+        else if(displayMode.equalsIgnoreCase("decimal")){
+            displayMode = "hex";
+            System.out.printf("Your answers will now display in %s \n", displayMode);
+        }
+        else{
+            displayMode = "binary";
+            System.out.printf("Your answers will now display in %s \n", displayMode);
+        }
+    }
+    public static void switchDisplayMode(String input){
+        String[] values = {"hex", "octal", "decimal","binary"};
+        boolean contains = Arrays.stream(values).anyMatch(s->s.contains(input));
+        if(contains){
+            displayMode = input;
+            System.out.printf("Your answers will now display in %s \n", displayMode);
+        }
+        else{
+            System.out.println("Please input a valid display mode");
+        }
+    }
 }
