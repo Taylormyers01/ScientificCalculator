@@ -7,6 +7,8 @@ import java.util.Scanner;
  */
 public class Console {
 
+
+
     public static void print(String output, Object... args) {
         System.out.printf(output, args);
     }
