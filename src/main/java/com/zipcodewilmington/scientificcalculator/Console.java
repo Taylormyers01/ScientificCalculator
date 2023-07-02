@@ -30,6 +30,7 @@ public class Console {
         boolean exit = false;
         while (exit != true) {
 
+            System.out.println( "\n Welcome to Mellifera's Calculator ");
             System.out.println( " __________________________________ \n" +
                                 "|                                  |\n" +
                                 "| Would you like to use Basic Math?|\n" +
@@ -68,8 +69,21 @@ public class Console {
 
     public static void setAnswer(int x) {
         answer = x;
-        System.out.println("Your answer is: " + answer);
-    }
+        System.out.println( "_________________\n"+
+                            "                 \n"+
+                            "Your answer is: " + answer);
+        System.out.println( "                 \n"+
+                            "_________________");
+
+        System.out.println("Input any key to continue");
+        Scanner input = new Scanner(System.in);
+        Character choice = input.next().charAt(0);
+        choice = choice.toUpperCase(choice);
+
+
+        }
+
+
 
 
 
@@ -78,7 +92,7 @@ public class Console {
         boolean exit = false;
         while (exit != true) {
 
-            System.out.println( " ________________________\n"+
+            System.out.println( " ________________________ \n"+
                                 "|  [Input an operation]  |\n"+
                                 "|                        |\n"+
                                 "| + Addition             |\n"+
@@ -89,10 +103,10 @@ public class Console {
                                 "| v Square Root a number |\n"+
                                 "| ~ Variable Exponent    |\n"+
                                 "| _ Inverse a number     |\n"+
-                                "| |   Invert a number    |\n"+
+                                "| | Invert a number      |\n"+
                                 "|                        |\n"+
-                                "|   [Or input e to exi]  |\n"+
-                                "|------------------------|");
+                                "|  [Or input e to exit]  |\n"+
+                                " ------------------------   ");
 
             Scanner input = new Scanner(System.in);
             Character choice = input.next().charAt(0);
@@ -106,6 +120,8 @@ public class Console {
                     setOperatorNum(input.nextInt());
 
                     setAnswer(BasicMath.addNum(baseNum, operatorNum));
+
+
 
                    // System.out.println(BasicMath.addNum(baseNum, operatorNum));
 
