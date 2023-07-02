@@ -1,107 +1,102 @@
 package com.zipcodewilmington.scientificcalculator;
 
+import java.util.Arrays;
+
 public class ScientificMath {
 
 
 
     static double  baseNum;
     static String mode;
+    static double savedAnswer;
+    static String displayMode;
 
     public ScientificMath(){
         baseNum = 0.00;
         mode = "degrees";
+        savedAnswer = 0.00;
+        displayMode = "decimal";
     }
-    public double sine(){
-        double output;
+    public static void sine(){
         if(mode.equals("degrees")){
-            output = Math.sin(convertToRadian(baseNum));
+            baseNum = Math.sin(convertToRadian(baseNum));
         }
         else{
-            output = Math.sin(baseNum);
+            baseNum = Math.sin(baseNum);
         }
-        return output;
     }
 
-    public static double cosine(){
-        double output;
+    public static void cosine(){
         if(mode.equals("degrees")){
-            output = Math.cos(convertToRadian(baseNum));
+            baseNum = Math.cos(convertToRadian(baseNum));
         }
         else {
-            output = Math.cos(baseNum);
+            baseNum = Math.cos(baseNum);
         }
-        return output;
     }
 
-    public static double tan(){
-        double output;
+    public static void tan(){
         if(mode.equals("degrees")){
-            output = Math.tan(convertToRadian(baseNum));
+            baseNum = Math.tan(convertToRadian(baseNum));
         }
         else{
-            output = Math.tan(baseNum);
+            baseNum = Math.tan(baseNum);
         }
-        return output;
     }
-    public static double inverseSine(){
-        double output;
+    public static void inverseSine(){
+
         if(mode.equals("degrees")){
-            output = Math.asin(convertToRadian(baseNum));
+            baseNum = Math.asin(baseNum);
+            baseNum = Math.toDegrees(baseNum);
         }
         else{
-            output = Math.asin(baseNum);
+            baseNum = Math.asin(baseNum);
         }
-        return output;
     }
 
-    public static double inverseCosine(){
-        double output;
+    public static void inverseCosine(){
         if(mode.equals("degrees")){
-            output = Math.acos(convertToRadian(baseNum));
+            baseNum = Math.acos(baseNum);
+            baseNum = Math.toDegrees(baseNum);
         }
         else{
-            output = Math.acos(baseNum);
+            baseNum = Math.acos(baseNum);
         }
-        return output;
     }
 
-    public static double inverseTan(){
-        double output;
+    public static void inverseTan(){
         if(mode.equals("degrees")){
-            output = Math.atan(convertToRadian(baseNum));
+            baseNum = Math.atan(baseNum);
+            baseNum = Math.toDegrees(baseNum);
         }
         else{
-            output = Math.atan(baseNum);
+            baseNum = Math.atan(baseNum);
         }
-        return output;
     }
 
-    public static double log(double x){
-        double output = Math.log(x);
-        return output;
+    public static void log() { baseNum = Math.log10(baseNum);}
+
+    public static void inverseLog(){
+         //baseNum = Math.exp(Math.log(baseNum));
+        baseNum = Math.pow(10.0, baseNum);
     }
 
-    public static double inverseLog(double x){
-        double output = Math.log10(x);
-        return output;
+    public static void naturalLog(){
+        baseNum = Math.log(baseNum);
     }
 
-    public static double naturalLog(double x){
-        double output = Math.log1p(x);
-        return output;
+    public static void inverseNaturalLog(){
+        //inverse natural log is just the input number right?
+        baseNum = Math.exp(baseNum);
     }
 
-    public static double inverseNaturalLog(double x){
-        return x;
-    }
-
-    public static double factorial(double x){
+    public static void factorial(){
         double output = 1;
-        while(x > 0){
-            output = output * x;
-            x--;
+        while(baseNum > 0){
+            output = output * baseNum;
+            baseNum--;
         }
-        return output;
+        baseNum = output;
     }
 
     public static void switchUnitModes(){
@@ -141,4 +136,67 @@ public class ScientificMath {
         return output;
     }
 
+   public static double getBaseNum(){
+        return baseNum;
+   }
+
+    public static void printAnswer(){
+        String conversion = "";
+
+        if (displayMode.equalsIgnoreCase("decimal")){
+            System.out.printf("Your answer is %.2f.", baseNum);
+        }
+        else if(displayMode.equalsIgnoreCase("binary")){
+            conversion = Integer.toBinaryString((int)baseNum);
+            System.out.printf("Your number in decimal is: %.2f and %s in binary\n", baseNum, conversion);
+        }
+        else if(displayMode.equalsIgnoreCase("octal")){
+            conversion = Integer.toOctalString((int)baseNum);
+            System.out.printf("Your number in decimal is: %.2f and %s in octal\n", baseNum, conversion);
+        }
+        else{
+            conversion = Integer.toHexString((int)baseNum);
+            System.out.printf("Your number in decimal is: %.2f and %s in hexadecimal\n", baseNum, conversion);
+        }
+    }
+
+    public static void setSavedAnswer(){
+        savedAnswer = baseNum;
+    }
+    public static void clearSavedAnswer(){
+        savedAnswer = 0;
+    }
+    public static double getSavedAnswer(){
+        return savedAnswer;
+    }
+
+    public static void switchDisplayMode(){
+        if(displayMode.equalsIgnoreCase("binary")){
+            displayMode = "octal";
+            System.out.printf("Your answers will now display in %s \n", displayMode);
+        }
+        else if(displayMode.equalsIgnoreCase("octal")){
+            displayMode = "decimal";
+            System.out.printf("Your answers will now display in %s \n", displayMode);
+        }
+        else if(displayMode.equalsIgnoreCase("decimal")){
+            displayMode = "hex";
+            System.out.printf("Your answers will now display in %s \n", displayMode);
+        }
+        else{
+            displayMode = "binary";
+            System.out.printf("Your answers will now display in %s \n", displayMode);
+        }
+    }
+    public static void switchDisplayMode(String input){
+        String[] values = {"hex", "octal", "decimal","binary", "Hex", "Octal", "Decimal", "Binary"};
+        boolean contains = Arrays.stream(values).anyMatch(s->s.contains(input));
+        if(contains){
+            displayMode = input;
+            System.out.printf("Your answers will now display in %s \n", displayMode);
+        }
+        else{
+            System.out.println("Please input a valid display mode");
+        }
+    }
 }

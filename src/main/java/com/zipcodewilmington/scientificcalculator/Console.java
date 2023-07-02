@@ -260,8 +260,8 @@ public class Console {
                                 "|   inlog  Inverse Natural Log   |\n" +
                                 "|   !      Factorial             |\n" +
                                 "|    ------------------------    |\n" +
-                                "|   Switch Unit                  |\n" +
-                                "|   Switch Display               |\n" +
+                                "|   SU     Switch Unit           |\n" +
+                                "|   SD     Switch Display        |\n" +
                                 "|                                |\n" +
                                 "|      [Or input e to exit]      |\n" +
                                 " --------------------------------");
@@ -283,37 +283,133 @@ public class Console {
 
             if (choice.equals("log")) {
                 System.out.println("Input your number");
-                setDoubleBaseNum(input.nextDouble());
+                sm.setBaseNum(input.nextDouble());
 
-                setDoubleAnswer(ScientificMath.log(doubleBaseNum));
+                sm.log();
+                sm.printAnswer();
 
             } else if (choice.equals("ilog")) {
                 System.out.println("Input your number");
-                setDoubleBaseNum(input.nextDouble());
+                sm.setBaseNum(input.nextDouble());
 
-                setDoubleAnswer(ScientificMath.inverseNaturalLog(doubleBaseNum));
+                sm.inverseLog();
+                sm.printAnswer();
+
 
             } else if (choice.equals("nlog")) {
                 System.out.println("Input your number");
-                setDoubleBaseNum(input.nextDouble());
+                sm.setBaseNum(input.nextDouble());
 
-                setDoubleAnswer(ScientificMath.naturalLog(doubleBaseNum));
+                sm.naturalLog();
+                sm.printAnswer();
 
             } else if (choice.equals("inlog")) {
                 System.out.println("Input your number");
-                setDoubleBaseNum(input.nextDouble());
+                sm.setBaseNum(input.nextDouble());
 
-                setDoubleAnswer(ScientificMath.inverseNaturalLog(doubleBaseNum));
+                sm.inverseNaturalLog();
+                sm.printAnswer();
 
             } else if (choice.equals("!")) {
                 System.out.println("Input your number");
-                setDoubleBaseNum(input.nextDouble());
+                sm.setBaseNum(input.nextDouble());
 
-                setDoubleAnswer(ScientificMath.factorial(doubleBaseNum));
+                sm.factorial();
+                sm.printAnswer();
+
+            } else if (choice.equalsIgnoreCase("sin")) {
+                System.out.println("Input your number");
+                sm.setBaseNum(input.nextDouble());
+
+                sm.sine();
+                sm.printAnswer();
+
+            } else if (choice.equalsIgnoreCase("asin")) {
+                System.out.println("Input your number");
+                sm.setBaseNum(input.nextDouble());
+
+                sm.inverseSine();
+                sm.printAnswer();
+
+            } else if (choice.equalsIgnoreCase("cos")) {
+                System.out.println("Input your number");
+                sm.setBaseNum(input.nextDouble());
+
+                sm.cosine();
+                sm.printAnswer();
+            } else if (choice.equalsIgnoreCase("acos")) {
+                System.out.println("Input your number");
+                sm.setBaseNum(input.nextDouble());
+
+                sm.inverseCosine();
+                sm.printAnswer();
+
+            } else if (choice.equalsIgnoreCase("tan")) {
+                System.out.println("Input your number");
+                sm.setBaseNum(input.nextDouble());
+
+                sm.tan();
+                sm.printAnswer();
+
+            } else if (choice.equalsIgnoreCase("itan")) {
+                System.out.println("Input your number");
+                sm.setBaseNum(input.nextDouble());
+
+                sm.inverseTan();
+                sm.printAnswer();
+
+            }  else if (choice.equalsIgnoreCase("su")) {
+                System.out.println("Which units would you like to use? \n" +
+                                   "Deg for Degrees                    \n" +
+                                   "Rad for Radians                    \n" +
+                                   "C   for Cycle                      \n");
+
+                String unit = input.nextLine();
+                unit = input.nextLine();
+
+                if (unit.equalsIgnoreCase("deg")) {
+                    sm.switchUnitModes("degrees");
+
+                } else if (unit.equalsIgnoreCase("rad")) {
+                    sm.switchUnitModes("radians");
+                } else if (unit.equalsIgnoreCase("C")) {
+                    sm.switchUnitModes();
+                } else {
+                    System.out.println("Invalid input, try again mister");
+                }
+
+
+            }  else if (choice.equalsIgnoreCase("sd")) {
+                System.out.println("Which units would you like to use? \n" +
+                        "Oct Octal Display                   \n" +
+                        "Hex Hexadecimal Display             \n" +
+                        "Dec Decimal Display                 \n" +
+                        "Bin Binary Display                  \n" +
+                        "C   Cycle                             ");
+
+                String unit = input.nextLine();
+                unit = input.nextLine();
+                System.out.println(unit);
+
+                if (unit.equalsIgnoreCase("oct")) {
+                    sm.switchDisplayMode("Octal");
+
+                } else if (unit.equalsIgnoreCase("hex")) {
+                    sm.switchDisplayMode("hex");
+
+                } else if (unit.equalsIgnoreCase("dec")) {
+                    sm.switchDisplayMode("decimal");
+
+                } else if (unit.equalsIgnoreCase("bin")) {
+                    sm.switchDisplayMode("binary");
+
+                } else if (unit.equalsIgnoreCase("c")) {
+                    sm.switchDisplayMode();
+
+                } else {
+                    System.out.println("Invalid input, try again mister");
+                }
             }
-
-
-
 
             else if (choice.equalsIgnoreCase("e")) {
 
