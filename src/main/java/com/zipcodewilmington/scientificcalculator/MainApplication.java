@@ -19,7 +19,7 @@ public class MainApplication {
 
 
         Console c = new Console();
-        c.startUp();
+
     /*
         for (int i = 0; i < 100; i++){
             for(int j = 0; j < 3; j++){
@@ -41,12 +41,12 @@ public class MainApplication {
 
 
 
-        //ScientificMath sm = new ScientificMath();
-        //sm.setBaseNum(10);
+        ScientificMath sm = new ScientificMath();
+        sm.setBaseNum(1);
         //2.617993878
         //System.out.println(sm.convertToRadian(150));
-        //sm.sine();
-        //sm.printAnswer();
+        sm.inverseSine();
+        sm.printAnswer();
         //sm.switchDisplayMode("");
 
         /*

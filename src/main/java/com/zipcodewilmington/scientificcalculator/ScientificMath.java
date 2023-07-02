@@ -17,7 +17,7 @@ public class ScientificMath {
         savedAnswer = 0.00;
         displayMode = "decimal";
     }
-    public void sine(){
+    public static void sine(){
         if(mode.equals("degrees")){
             baseNum = Math.sin(convertToRadian(baseNum));
         }
@@ -132,6 +132,10 @@ public class ScientificMath {
         return output;
     }
 
+   public static double getBaseNum(){
+        return baseNum;
+   }
+
     public static void printAnswer(){
         String conversion = "";
 
@@ -158,6 +162,9 @@ public class ScientificMath {
     public static void clearSavedAnswer(){
         savedAnswer = 0;
     }
+    public static double getSavedAnswer(){
+        return savedAnswer;
+    }
 
     public static void switchDisplayMode(){
         if(displayMode.equalsIgnoreCase("binary")){
@@ -178,7 +185,7 @@ public class ScientificMath {
         }
     }
     public static void switchDisplayMode(String input){
-        String[] values = {"hex", "octal", "decimal","binary"};
+        String[] values = {"hex", "octal", "decimal","binary", "Hex", "Octal", "Decimal", "Binary"};
         boolean contains = Arrays.stream(values).anyMatch(s->s.contains(input));
         if(contains){
             displayMode = input;
