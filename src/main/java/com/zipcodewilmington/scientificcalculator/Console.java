@@ -1,8 +1,5 @@
 package com.zipcodewilmington.scientificcalculator;
 
-import org.w3c.dom.ls.LSOutput;
-
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 /**
@@ -14,6 +11,9 @@ public class Console {
         static int operatorNum;
         static int answer;
 
+        static double doubleAnswer;
+        static double doubleBaseNum;
+        static double doubleOperatorNum;
 
 
     public Console() {
@@ -21,7 +21,7 @@ public class Console {
         baseNum = 0;
         operatorNum = 0;
         answer = 0;
-
+        doubleAnswer = 0.0;
 
 
     }
@@ -89,6 +89,29 @@ public class Console {
 
 
         }
+    public static void setDoubleBaseNum(double x) {doubleBaseNum = x;}
+
+    public static void setDoubleOperatorNum(double x) {
+        doubleOperatorNum = x;
+    }
+
+    public static void setDoubleAnswer(double x) {
+
+        doubleAnswer = x;
+
+        System.out.println( "_________________\n"+
+                            "                 \n");
+        System.out.printf(  "Your answer is: %.3f\n", doubleAnswer);
+        System.out.println( "                 \n"+
+                            "_________________");
+
+        System.out.println("Input any key to continue");
+        Scanner input = new Scanner(System.in);
+        Character choice = input.next().charAt(0);
+        choice = choice.toUpperCase(choice);
+
+
+    }
 
 
 
@@ -151,10 +174,10 @@ public class Console {
 
                 } else if (choice == '/') {
                     System.out.println("Input your first number");
-                    setBaseNum(input.nextInt());
+                    setDoubleBaseNum(input.nextDouble());
 
                     System.out.println("Input your second number");
-                    int temp = input.nextInt();
+                    double temp = input.nextDouble();
 
                     if (temp == 0) {
 
@@ -169,8 +192,8 @@ public class Console {
                             }
 
                     } else if (temp != 0) {
-                        setOperatorNum(temp);
-                        setAnswer((int) BasicMath.divNum(baseNum, operatorNum));
+                        setDoubleOperatorNum(temp);
+                        setDoubleAnswer(BasicMath.divNum(doubleBaseNum, doubleOperatorNum));
                     }
 
 
@@ -222,32 +245,81 @@ public class Console {
         boolean exit = false;
         while (exit != true) {
 
-            System.out.println(" ________________________ \n" +
-                                "|  [Input an operation]  |\n" +
-                                "|                        |\n" +
-                                "|   sin                  |\n" +
-                                "|   cos                  |\n" +
-                                "|   tan                  |\n" +
-                                "|   asin                 |\n" +
-                                "|   acos                 |\n" +
-                                "|   atan                 |\n" +
-                                "|   log                  |\n" +
-                                "|   ilog                 |\n" +
-                                "|   nlog                 |\n" +
-                                "|   inlog                |\n" +
-                                "|   !                    |\n" +
-                                "|   switch unit          |\n" +
-                                "|   switch display       |\n" +
-                                "|                        |\n" +
-                                "|                        |\n" +
-                                "|  [Or input e to exit]  |\n" +
-                                " ------------------------");
+            System.out.println( " ________________________________ \n" +
+                                "|      [Input an operation]      |\n" +
+                                "|                                |\n" +
+                                "|   sin    Sine                  |\n" +
+                                "|   cos    Cosine                |\n" +
+                                "|   tan    Tangent               |\n" +
+                                "|   asin   Arcsine               |\n" +
+                                "|   acos   Arccosine             |\n" +
+                                "|   atan   Arctangent            |\n" +
+                                "|   log    Logarithm             |\n" +
+                                "|   ilog   Inverse Log           |\n" +
+                                "|   nlog   Natural Log           |\n" +
+                                "|   inlog  Inverse Natural Log   |\n" +
+                                "|   !      Factorial             |\n" +
+                                "|    ------------------------    |\n" +
+                                "|   Switch Unit                  |\n" +
+                                "|   Switch Display               |\n" +
+                                "|                                |\n" +
+                                "|      [Or input e to exit]      |\n" +
+                                " --------------------------------");
 
             Scanner input = new Scanner(System.in);
             String choice = input.next();
-            if (choice.equalsIgnoreCase("e")) {
+
+        /*
+            if (choice.equals("...")) {
+                System.out.println("Input your number");
+                setDoubleBaseNum(input.nextDouble());
+
+                System.out.println("Input your second number");
+                setDoubleOperatorNum(input.nextDouble());
+
+                setDoubleAnswer(ScientificMath.log(doubleBaseNum));
+                }
+        */
+
+            if (choice.equals("log")) {
+                System.out.println("Input your number");
+                setDoubleBaseNum(input.nextDouble());
+
+                setDoubleAnswer(ScientificMath.log(doubleBaseNum));
+
+            } else if (choice.equals("ilog")) {
+                System.out.println("Input your number");
+                setDoubleBaseNum(input.nextDouble());
+
+                setDoubleAnswer(ScientificMath.inverseNaturalLog(doubleBaseNum));
+
+            } else if (choice.equals("nlog")) {
+                System.out.println("Input your number");
+                setDoubleBaseNum(input.nextDouble());
+
+                setDoubleAnswer(ScientificMath.naturalLog(doubleBaseNum));
+
+            } else if (choice.equals("inlog")) {
+                System.out.println("Input your number");
+                setDoubleBaseNum(input.nextDouble());
+
+                setDoubleAnswer(ScientificMath.inverseNaturalLog(doubleBaseNum));
+
+            } else if (choice.equals("!")) {
+                System.out.println("Input your number");
+                setDoubleBaseNum(input.nextDouble());
+
+                setDoubleAnswer(ScientificMath.factorial(doubleBaseNum));
+            }
+
+
+
+
+            else if (choice.equalsIgnoreCase("e")) {
+
                 exit = true;
             }
+
         }
 
     }
