@@ -44,8 +44,10 @@ public class ScientificMath {
         }
     }
     public static void inverseSine(){
+
         if(mode.equals("degrees")){
-            baseNum = Math.asin(convertToRadian(baseNum));
+            baseNum = Math.asin(baseNum);
+            baseNum = Math.toDegrees(baseNum);
         }
         else{
             baseNum = Math.asin(baseNum);
@@ -54,7 +56,8 @@ public class ScientificMath {
 
     public static void inverseCosine(){
         if(mode.equals("degrees")){
-            baseNum = Math.acos(convertToRadian(baseNum));
+            baseNum = Math.acos(baseNum);
+            baseNum = Math.toDegrees(baseNum);
         }
         else{
             baseNum = Math.acos(baseNum);
@@ -63,7 +66,8 @@ public class ScientificMath {
 
     public static void inverseTan(){
         if(mode.equals("degrees")){
-            baseNum = Math.atan(convertToRadian(baseNum));
+            baseNum = Math.atan(baseNum);
+            baseNum = Math.toDegrees(baseNum);
         }
         else{
             baseNum = Math.atan(baseNum);
