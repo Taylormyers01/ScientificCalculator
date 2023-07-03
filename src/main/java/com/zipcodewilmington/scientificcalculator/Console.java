@@ -263,6 +263,10 @@ public class Console {
                                 "|   SU     Switch Unit           |\n" +
                                 "|   SD     Switch Display        |\n" +
                                 "|                                |\n" +
+                                "|   Save    Save Answer          |\n" +
+                                "|   View    View Answer          |\n" +
+                                "|   Clear   Clear Answer         |\n" +
+                                "|                                |\n" +
                                 "|      [Or input e to exit]      |\n" +
                                 " --------------------------------");
 
@@ -409,6 +413,19 @@ public class Console {
                 } else {
                     System.out.println("Invalid input, try again mister");
                 }
+
+            } else if (choice.equalsIgnoreCase("save")) {
+                sm.setSavedAnswer();
+                System.out.printf("You have saved %.2f as your answer\n", sm.getSavedAnswer());
+
+            } else if (choice.equalsIgnoreCase("view")) {
+                System.out.printf("Your saved answer is: %.2f \n", sm.getSavedAnswer());
+
+
+            } else if (choice.equalsIgnoreCase("clear")) {
+                sm.clearSavedAnswer();
+                System.out.println("You have cleared your saved answer");
+
             }
 
             else if (choice.equalsIgnoreCase("e")) {

@@ -144,7 +144,7 @@ public class ScientificMath {
         String conversion = "";
 
         if (displayMode.equalsIgnoreCase("decimal")){
-            System.out.printf("Your answer is %.2f.", baseNum);
+            System.out.printf("Your answer is %.2f.\n", baseNum);
         }
         else if(displayMode.equalsIgnoreCase("binary")){
             conversion = Integer.toBinaryString((int)baseNum);
@@ -169,6 +169,12 @@ public class ScientificMath {
     public static double getSavedAnswer(){
         return savedAnswer;
     }
+
+    public static void swapSavedNumber() {
+        baseNum = savedAnswer;
+        savedAnswer = 0;
+    }
+
 
     public static void switchDisplayMode(){
         if(displayMode.equalsIgnoreCase("binary")){
