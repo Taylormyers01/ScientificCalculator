@@ -6,21 +6,21 @@ public class BasicMath {
     // addNum subNum multNum divNum
     // sqrNum sqrRootNum expNum inverseNum invertNum
 
-    public static int addNum(int x, int y) {
+    public static double addNum(double x, double y) {
 
-        int ans = x + y;
+        double ans = x + y;
         return ans;
     }
 
-    public static int subNum(int x, int y) {
+    public static double subNum(double x, double y) {
 
-        int ans = x - y;
+        double ans = x - y;
         return ans;
     }
 
-    public static int multNum(int x, int y) {
+    public static double multNum(double x, double y) {
 
-        int ans = x * y;
+        double ans = x * y;
         return ans;
     }
 
@@ -30,9 +30,9 @@ public class BasicMath {
         return ans;
     }
 
-    public static int sqrNum(int x) {
+    public static double sqrNum(double x) {
 
-        int ans = x * x;
+        double ans = x * x;
         return ans;
     }
 
@@ -43,7 +43,7 @@ public class BasicMath {
         return ans;
     }
 
-    public static double expNum(int x, int y) {
+    public static double expNum(double x, double y) {
 
         double ans = Math.pow(x, y);
         return ans;
@@ -61,9 +61,9 @@ public class BasicMath {
         return ans;
 
     }
-    public static int invertNum(int x) {
+    public static double invertNum(double x) {
 
-        int ans = x * -1;
+        double ans = x * -1;
         return ans;
     }
 

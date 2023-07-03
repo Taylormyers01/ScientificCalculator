@@ -161,12 +161,12 @@ public class Console {
 
                 if (choice == '+') {
                     System.out.println("Input your first number");
-                    setBaseNum(input.nextInt());
+                    setDoubleBaseNum(input.nextDouble());
 
                     System.out.println("Input your second number");
-                    setOperatorNum(input.nextInt());
+                    setDoubleOperatorNum(input.nextDouble());
 
-                    setAnswer(BasicMath.addNum(baseNum, operatorNum));
+                    setDoubleAnswer(BasicMath.addNum(doubleBaseNum, doubleOperatorNum));
 
 
 
@@ -174,21 +174,21 @@ public class Console {
 
                 } else if (choice == '-') {
                     System.out.println("Input your first number");
-                    setBaseNum(input.nextInt());
+                    setDoubleBaseNum(input.nextDouble());
 
                     System.out.println("Input your second number");
-                    setOperatorNum(input.nextInt());
+                    setDoubleOperatorNum(input.nextDouble());
 
-                    setAnswer(BasicMath.subNum(baseNum, operatorNum));
+                    setDoubleAnswer(BasicMath.subNum(doubleBaseNum, doubleOperatorNum));
 
                 } else if (choice == '*') {
                     System.out.println("Input your first number");
-                    setBaseNum(input.nextInt());
+                    setDoubleBaseNum(input.nextDouble());
 
                     System.out.println("Input your second number");
-                    setOperatorNum(input.nextInt());
+                    setDoubleOperatorNum(input.nextDouble());
 
-                    setAnswer(BasicMath.multNum(baseNum, operatorNum));
+                    setDoubleAnswer(BasicMath.multNum(doubleBaseNum, doubleOperatorNum));
 
                 } else if (choice == '/') {
                     System.out.println("Input your first number");
@@ -217,36 +217,36 @@ public class Console {
 
                 } else if (choice == '^') {
                     System.out.println("Input your number");
-                    setBaseNum(input.nextInt());
+                    setDoubleBaseNum(input.nextDouble());
 
-                    setAnswer(BasicMath.sqrNum(baseNum));
+                    setDoubleAnswer(BasicMath.sqrNum(doubleBaseNum));
 
                 } else if (choice == 'v') {
                     System.out.println("Input your number");
-                    setBaseNum(input.nextInt());
+                    setDoubleBaseNum(input.nextDouble());
 
-                    setAnswer((int) BasicMath.sqrRootNum(baseNum));
+                    setDoubleAnswer((int) BasicMath.sqrRootNum(doubleBaseNum));
 
                 } else if (choice == '~') {
                     System.out.println("Input your first number");
-                    setBaseNum(input.nextInt());
+                    setDoubleBaseNum(input.nextDouble());
 
                     System.out.println("Input your second number");
-                    setOperatorNum(input.nextInt());
+                    setDoubleOperatorNum(input.nextDouble());
 
-                    setAnswer((int) BasicMath.expNum(baseNum, operatorNum));
+                    setDoubleAnswer(BasicMath.expNum(doubleBaseNum, doubleOperatorNum));
 
                 } else if (choice == '_') {
                     System.out.println("Input your number");
-                    setBaseNum(input.nextInt());
+                    setDoubleBaseNum(input.nextDouble());
 
-                    setAnswer((int) BasicMath.inverseNum(baseNum));
+                    setDoubleAnswer(BasicMath.inverseNum(doubleBaseNum));
 
                 } else if (choice == '|') {
                     System.out.println("Input your number");
-                    setBaseNum(input.nextInt());
+                    setDoubleBaseNum(input.nextDouble());
 
-                    setAnswer(BasicMath.invertNum(baseNum));
+                    setDoubleAnswer(BasicMath.invertNum(doubleBaseNum));
 
                 } else if (choice == '%') {
                     System.out.println("What percentage would you like?");
