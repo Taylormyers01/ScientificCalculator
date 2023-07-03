@@ -2,6 +2,11 @@ package com.zipcodewilmington.scientificcalculator;
 import java.util.Scanner;
 public class CoreFunctions {
 
+
+
+
+
+
     public static double add(double base, double modifier) {
         double ans = base + modifier;
         return ans;
