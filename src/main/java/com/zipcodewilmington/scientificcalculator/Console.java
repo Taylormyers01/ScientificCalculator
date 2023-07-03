@@ -39,6 +39,8 @@ public class Console {
                                 "| Or Scientific Math?              |\n" +
                                 "| Input B for Basic Math           |\n" +
                                 "| Input S for Scientific Math      |\n" +
+                                "| Input D for Dancing Man          |\n" +
+                                "|                                  |\n" +
                                 "| Input E to Exit the calculator   |\n" +
                                 "| _________________________________|\n");
             Scanner input = new Scanner(System.in);
@@ -53,6 +55,21 @@ public class Console {
                 System.out.println("You have chosen Scientific Math");
 
                 runScientificMath();
+
+            } else if (choice == 'D') {
+
+                for (int i = 0; i < 5; i++){
+                    for(int j = 0; j < 2; j++){
+                        System.out.println("(•_•)\t (•_•)\n" +
+                                "<) )╯\t \\( (> \n" +
+                                " / \\\t  / \\");
+                        Thread.sleep(300);
+                        System.out.println(("(•_•)\t (•_•)\n" +
+                                "\\( (>\t <) )╯\n" +
+                                " / \\\t  / \\"));
+                        Thread.sleep(300);
+                    }
+                }
 
             } else if (choice == 'E') {
                 System.out.println("Thank you for using our Calculator");
@@ -133,6 +150,7 @@ public class Console {
                                 "| ~ Variable Exponent    |\n"+
                                 "| _ Inverse a number     |\n"+
                                 "| | Invert a number      |\n"+
+                                "| % Get a percentage     |\n"+
                                 "|                        |\n"+
                                 "|  [Or input e to exit]  |\n"+
                                 " ------------------------   ");
@@ -230,8 +248,16 @@ public class Console {
 
                     setAnswer(BasicMath.invertNum(baseNum));
 
-                }
-                    else if (choice == 'e') {
+                } else if (choice == '%') {
+                    System.out.println("What percentage would you like?");
+                    setDoubleBaseNum(input.nextDouble());
+
+                    System.out.println("From what number?");
+                    setDoubleOperatorNum(input.nextDouble());
+
+                    setDoubleAnswer(BasicMath.getPercentage(doubleBaseNum, doubleOperatorNum));
+
+                } else if (choice == 'e') {
                     exit = true;
 
                 }

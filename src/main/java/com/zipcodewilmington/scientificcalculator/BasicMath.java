@@ -55,6 +55,12 @@ public class BasicMath {
         return ans;
     }
 
+    public static double getPercentage(double x, double y) {
+        //get x percent from y
+        double ans = ((x/100) * y);
+        return ans;
+
+    }
     public static int invertNum(int x) {
 
         int ans = x * -1;
