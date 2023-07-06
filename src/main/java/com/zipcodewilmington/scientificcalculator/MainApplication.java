@@ -1,10 +1,12 @@
 package com.zipcodewilmington.scientificcalculator;
 
+import java.io.IOException;
+
 /**
  * Created by leon on 2/9/18.
  */
 public class MainApplication {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, IOException {
 
 
         /*
@@ -18,46 +20,15 @@ public class MainApplication {
         */
 
 
-        Console c = new Console();
-
-
-    /*
-        for (int i = 0; i < 100; i++){
-            for(int j = 0; j < 3; j++){
-                System.out.println("(•_•)\t (•_•)\n" +
-                                   "<) )╯\t \\( (> \n" +
-                                   " / \\\t  / \\");
-                Thread.sleep(300);
-                System.out.println(("(•_•)\t (•_•)\n" +
-                                    "\\( (>\t <) )╯\n" +
-                                    " / \\\t  / \\"));
-                Thread.sleep(300);
-            }
+        //Console c = new Console();
+        NewConsole c = new NewConsole();
+        try {
+            c.startUp();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
-
-     */
-
-
-
-
-
-
-        ScientificMath sm = new ScientificMath();
-        sm.setBaseNum(1);
-        //2.617993878
-        //System.out.println(sm.convertToRadian(150));
-        sm.inverseSine();
-        sm.printAnswer();
-        //sm.switchDisplayMode("");
-
-        /*
-        System.out.println(sm.factorial(7));
-        sm.setBaseNum(2.617993878);
-        System.out.println(sm.sine());
-        sm.switchUnitModes();
-        System.out.println(sm.sine());
-        c.startUp();
-         */
 
     }
 }

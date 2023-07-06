@@ -74,20 +74,20 @@ public class ScientificMath {
         }
     }
 
-    public static void log(){
-         baseNum = Math.log(baseNum);
-    }
+    public static void log() { baseNum = Math.log10(baseNum);}
 
     public static void inverseLog(){
-         baseNum = Math.log10(baseNum);
+         //baseNum = Math.exp(Math.log(baseNum));
+        baseNum = Math.pow(10.0, baseNum);
     }
 
     public static void naturalLog(){
-        baseNum = Math.log1p(baseNum);
+        baseNum = Math.log(baseNum);
     }
 
     public static void inverseNaturalLog(){
         //inverse natural log is just the input number right?
+        baseNum = Math.exp(baseNum);
     }
 
     public static void factorial(){
@@ -144,7 +144,7 @@ public class ScientificMath {
         String conversion = "";
 
         if (displayMode.equalsIgnoreCase("decimal")){
-            System.out.printf("Your answer is %.2f.", baseNum);
+            System.out.printf("Your answer is %.2f.\n", baseNum);
         }
         else if(displayMode.equalsIgnoreCase("binary")){
             conversion = Integer.toBinaryString((int)baseNum);
@@ -169,6 +169,12 @@ public class ScientificMath {
     public static double getSavedAnswer(){
         return savedAnswer;
     }
+
+    public static void swapSavedNumber() {
+        baseNum = savedAnswer;
+        savedAnswer = 0;
+    }
+
 
     public static void switchDisplayMode(){
         if(displayMode.equalsIgnoreCase("binary")){
