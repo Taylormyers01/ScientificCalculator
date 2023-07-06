@@ -11,6 +11,8 @@ public class NewConsole {
     static double answer;
     static double baseNum;
     static double operatorNum;
+    static String[] previousOperations = {"1 + 1", "1 + 2", "log(22)"};
+    static String[] previousAnswers = {"55.2","55.2","55.2"};
     private static String[][] operators ={ {"+", "-", "*", "/", "^", "v", "~", "_", "|", "%",
                                         " sin ", " cos ", " tan ", " asin", " acos", " atan", " log ",
                                         " ilog", " nlog", "inlog", "!", "  SU ", "  SD ", " Save", " View", "Clear"},
@@ -24,7 +26,7 @@ public class NewConsole {
 
     public NewConsole() {
 
-        baseNum = 0;
+        baseNum = 0.0;
         operatorNum = 0.0;
         answer = 0.0;
 
@@ -95,13 +97,22 @@ public class NewConsole {
 
     public static String displayCalc(Double currentValue){
         StringBuilder sb = new StringBuilder();
-        sb.append(topBorder());
-        for(int i = 0; i < 4;i++){
-            sb.append(sides());
-        }
-        sb.append(bottomBorder());
+        sb.append(screen());
+//        for(int i = 0; i < 4;i++){
+//            sb.append(sides());
+//        }
         sb.append(buttons());
         return sb.toString();
+    }
+
+    private static StringBuilder screen(){
+        StringBuilder sb = new StringBuilder();
+        sb.append(topBorder());
+        for(int i = 0; i < previousOperations.length; i++){
+            sb.append(String.format("|  %-16s=%15s|\n", previousOperations[i], previousAnswers[i]));
+        }
+        sb.append(bottomBorder());
+        return sb;
     }
 
     private static StringBuilder buttons(){
@@ -133,7 +144,8 @@ public class NewConsole {
     }
     private static StringBuilder topBorder(){
         StringBuilder sb = new StringBuilder();
-        for(int i = 0; i<36; i++){
+        sb.append(" ");
+        for(int i = 0; i<34; i++){
             sb.append("_");
         }
         sb.append("\n");
